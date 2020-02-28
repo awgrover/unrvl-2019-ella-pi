@@ -135,6 +135,8 @@ def main():
     if not (environ.get('DEBUGUSEPORT') or arduino_hello(arduino) ):
         exit(1)
 
+    start_video( videos, -1 ) # aka idle
+
     last_direction = 0
     while True:
         direction, object_num = touch_message(arduino)
