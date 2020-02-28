@@ -85,6 +85,12 @@ void setup()
 
 void loop()
 {
+  unsigned long last_hello = millis();
+  if (millis() - last_hello > 4000) {
+    Serial.println("start"); // some weirdness with python not resetting serial port on open
+    last_hello = millis();
+  }
+  
   unsigned long start = micros();
 
   for (Touch &atouch : Touches) {
