@@ -1,0 +1,8 @@
+Put your movies in here.
+They must be .mp4
+Each name of a movie begins with a number, like 0-Candle.mp4.
+That corresponds to the touch pin order (A0 == 0, etc.).
+The "idle" movie (when nothing is touched), should have a "9", like 9-Idle.mp4.
+
+We are using the omxplayer on the rapsberry-pi, and it can only handle certain kinds of mp4, I used "WinFF" and the default settings to re-encode as mp4. That seems to work reliably.
+
