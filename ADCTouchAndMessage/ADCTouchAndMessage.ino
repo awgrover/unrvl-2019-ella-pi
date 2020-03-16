@@ -34,7 +34,7 @@ struct Touch {
     // sets .value
     this->value = ADCTouch.read(pin, tries);
   }
-  boolean touched(float of_remaining = 0.25) {
+  boolean touched(float of_remaining = 0.08) {
     // empirically, a touch is about 1/4 of the remaining "head space" to 1024
     return (1024 - ref) * of_remaining < (value - ref);
   }
@@ -65,8 +65,9 @@ void setup()
     Serial.print(atouch.ref); Serial.print(" ");
     Serial.println();
   }
-  Touch &atouch = Touches[1];
   /*
+    Touch &atouch = Touches[1];
+  
     Serial.print("x "); Serial.print(atouch.pin); Serial.print(" ");
     Serial.print(atouch.ref); Serial.print(" ");
     Serial.print(atouch.value); Serial.print(" ");
@@ -83,7 +84,7 @@ void loop()
   }
 
   unsigned long delta = micros() - start;
-  Serial.print(delta / 100); Serial.print(" ");
+  Serial.print(delta / 1000); Serial.print(" ");
 
   //value0 -= ref0;       //remove offset
   //value1 -= ref1;
